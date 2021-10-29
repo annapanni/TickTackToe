@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TickTackToe</title>
+    <style media="screen">
+      td{border: 1px solid black; width: 60px; height: 60px; text-align: center; font-size: 40px}
+      td:hover{background-color: lightgreen}
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+      const n=10
+      var xo="o"
+      function fgv (e){
+        if (e.target["innerText"] !="x" && e.target["innerText"]!="o"){
+          e.target["innerText"]= xo
+          xo= (xo=="o")? "x": "o"
+        }
+      }
+      tabl=document.createElement("table")
+      tabl.style["width"]=n*60+"px"
+      tabl.style["height"]=n*60+"px"
+      for (i=0; i<n; i++){
+        row=document.createElement("tr")
+        for (y=0; y<n; y++){
+          data=document.createElement("td")
+          data.addEventListener("click", fgv)
+          data["innerHTML"]="&nbsp;"+"&nbsp;"
+          row.appendChild(data)
+        }
+        tabl.appendChild(row)
+      }
+      document.body.appendChild(tabl)
+    </script>
+  </body>
+</html>
